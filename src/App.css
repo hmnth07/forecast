@@ -1,38 +1,297 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	margin: 0px;
+	font-family: "Inter";
+}
 .App {
-  text-align: center;
+	display: flex;
+}
+.main {
+	width: 80%;
+	background-color: aqua;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sideBar {
+	width: 20%;
+	height: 100vh;
+	border-right: 1px solid rgb(165, 165, 165);
+	padding: 32px 0px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.logo {
+	padding: 0px 16px;
+	display: flex;
+	align-items: center;
+}
+.logo span {
+	font-weight: 800;
+	font-size: 16.7516px;
+	line-height: 20px;
+	color: #101010;
+}
+.mainText {
+	padding: 0px 16px;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	color: #001e50;
+}
+nav {
+	display: flex;
+	flex-direction: column;
+}
+nav a {
+	padding: 0px 16px;
+	text-decoration: none;
+	color: #001e50;
+	display: flex;
+	align-items: center;
+	height: 56px;
+}
+nav a:hover {
+	background: linear-gradient(
+		192.05deg,
+		rgba(71, 191, 223, 0.1) 0%,
+		rgba(74, 145, 255, 0.1) 100%
+	);
+
+	border-left: 5px solid transparent;
+	border-image: linear-gradient(192.05deg, #47bfdf 0%, #4a91ff 100%);
+	border-image-slice: 1;
+}
+nav a:hover p {
+	background: linear-gradient(192.05deg, #47bfdf 0%, #4a91ff 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+nav a img {
+	margin-right: 10px;
+}
+.ad {
+	position: relative;
+	padding: 20px 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 16px;
+	/* background: #001e50; */
+	background: linear-gradient(
+		180deg,
+		rgba(250, 251, 252, 0) 0%,
+		#fafbfc 50.71%
+	);
+	border-radius: 20px;
+}
+.ad button {
+	position: absolute;
+	bottom: 30px;
+
+	line-height: 17px;
+	color: #ffffff;
+	background: linear-gradient(192.05deg, #47bfdf 0%, #4a91ff 100%);
+	border-radius: 15px;
+	height: 44px;
+	width: calc(100% - 32px);
+	font-weight: 600;
+	font-size: 14px;
+	border: none;
+	cursor: pointer;
+	box-shadow: 0px -20px 20px 10px white;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* ______Topbar styles_____ */
+.topBar {
+	height: 72px;
+	background: white;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 32px;
+}
+.topBar__right {
+	display: flex;
+	align-items: center;
+}
+.location {
+	display: flex;
+	align-items: center;
+	margin-right: 32px;
+	cursor: pointer;
+}
+.location p {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 29px;
+	color: #292d32;
+	margin: 0px 10px;
+}
+.logout {
+	cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+/* ______dashboard styles______ */
+.dashboard {
+	background: linear-gradient(192.05deg, #47bfdf 0%, #4a91ff 100%);
+	height: calc(100% - 72px);
+	padding-top: 170px;
+	position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dashboard__cloud {
+	position: absolute;
+	top: -20px;
+	text-align: center;
+	width: 100%;
+}
+.dashboard__cloud img {
+	width: 300px;
+}
+.liveWeather {
+	color: white;
+	text-align: center;
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 20px;
+	padding: 16px;
+	width: 350px;
+	margin: auto;
+}
+.liveWeather__today {
+	font-size: 18px;
+}
+.liveWeather__temperature {
+	font-family: "Overpass";
+	font-style: normal;
+	font-weight: 400;
+	font-size: 100px;
+	margin: 0px;
+	line-height: 127px;
+	text-shadow: -4px 8px 50px rgba(0, 0, 0, 0.1);
+}
+.liveWeather__condition {
+	font-weight: 700;
+	font-size: 24px;
+	margin: 0px;
+}
+.liveWeather ul {
+	list-style-type: none;
+	text-align: none;
+	padding: 0;
+}
+.liveWeather li {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.liveWeather li div {
+	display: flex;
+	align-items: center;
+}
+.liveWeather li img {
+	margin-right: 5px;
+}
+
+/* ________forecastReportPage_____styles______ */
+
+.forecast {
+	background: linear-gradient(192.05deg, #47bfdf 0%, #4a91ff 100%);
+	height: calc(100% - 72px);
+	padding: 32px;
+	color: white;
+}
+.todayForecast__cards {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: scroll;
+}
+.nextForecast__cards {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+/* ______cardWeather styles____ */
+.cardWeather {
+	border: 1px solid #54cbff;
+	border-radius: 28.7437px;
+	text-align: center;
+	width: 150px;
+	margin-right: 16px;
+	margin-bottom: 16px;
+}
+/* .cardWeather img {
+	position: relative;
+	top: 0px;
+} */
+.forecast--heading {
+	display: flex;
+	align-items: center;
+}
+.forecast--heading h1 {
+	margin-right: 5px;
+	font-weight: 800;
+	font-size: 32px;
+	line-height: 39px;
+	margin: 16px 0px;
+}
+/* _____NextForecastCard styles_____ */
+.nextForecastCard {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 45%;
+	height: 100px;
+	overflow-y: hidden;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 29px;
+}
+.nextForecastCard--light {
+	font-weight: 500;
+}
+.nextForecastCard div {
+	display: flex;
+	align-items: center;
+}
+
+/* ----dailogs_____ styles */
+
+.logoutDialog img {
+	display: block;
+	width: 100px;
+	margin: auto;
+}
+.logoutText {
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 39px;
+	color: #080713;
+	margin: 16px;
+}
+.logoutActions {
+	display: flex;
+	justify-content: space-between;
+}
+/* locationDropdown */
+.locationDropdown {
+	padding: 16px;
+	width: 350px;
+}
+/* location dropdown each card styles */
+.locationCard {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.locationCard div {
+	display: flex;
+	align-items: center;
+}
+.locationCard div p {
+	margin-left: 5px;
 }
