@@ -1,10 +1,15 @@
 import React from "react";
+// import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import logo from "../assets/logo.svg";
 import dashboardMenuIcon from "../assets/dashboardMenuIcon.svg";
 import forecastMenuIcon from "../assets/forecastMenuIcon.svg";
 import handImage from "../assets/hand.svg";
 
 function Sidebar() {
+	// const [currentTab, setCurrentTab] = useState("dashboard");
+	// console.log(currentTab, "currentTab");
 	return (
 		<div className="sideBar">
 			<div>
@@ -14,14 +19,14 @@ function Sidebar() {
 				</div>
 				<p className="mainText">Main</p>
 				<nav>
-					<a href="# ">
+					<Link to="/">
 						<img src={dashboardMenuIcon} alt="dashboard" />
 						<p>Dashboard</p>
-					</a>
-					<a href="# ">
-						<img src={forecastMenuIcon} alt="dashboard" />
+					</Link>
+					<Link to="forecastReport">
+						<img src={forecastMenuIcon} alt="forecast" />
 						<p>Forecast Report</p>
-					</a>
+					</Link>
 				</nav>
 			</div>
 
