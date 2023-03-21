@@ -18,7 +18,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SearchIcon from "@mui/icons-material/Search";
 import LocationCard from "./molecules/LocationCard";
 
-function Topbar() {
+function Topbar({ setSelectedCity, selectedCity }) {
 	// Location dropdown MUI logic
 	const [anchorEl, setAnchorEl] = React.useState(null);
 	const handleClick = (event) => {
@@ -57,6 +57,13 @@ function Topbar() {
 		getData();
 	}, []);
 
+	// city selection
+	const selectCity = (city) => {
+		console.log(city, "onclick selectcity");
+		setSelectedCity(city);
+		handleCloseDropdown();
+	};
+
 	return (
 		<div className="topBar">
 			<MenuOutlinedIcon />
@@ -64,7 +71,7 @@ function Topbar() {
 				{/* location selection */}
 				<div className="location" onClick={handleClick}>
 					<FmdGoodOutlinedIcon />
-					<p>Semarang</p>
+					<p>{selectedCity?.name ? selectedCity?.name : "Fort Worth"}</p>
 					<ExpandMoreOutlinedIcon />
 				</div>
 
@@ -111,13 +118,10 @@ function Topbar() {
 							</IconButton>
 						</Paper>
 						{cityList?.map((city) => (
-							<LocationCard key={city?._id} city={city} />
+							<div key={city?._id} onClick={() => selectCity(city)}>
+								<LocationCard city={city} />
+							</div>
 						))}
-
-						{/* <LocationCard city={city} />
-						<LocationCard />
-						<LocationCard />
-						<LocationCard /> */}
 					</div>
 				</Popover>
 

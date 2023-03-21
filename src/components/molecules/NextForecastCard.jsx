@@ -10,8 +10,6 @@ import {
 } from "../../assets/index";
 
 function NextForecastCard({ obj, day }) {
-	// const date = new Date();
-	// let today = date.getDate();
 	const imageMap = new Map([
 		["Cloudy", sunny],
 		["Partly Cloudy", partlyCloudy],
