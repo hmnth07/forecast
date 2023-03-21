@@ -7,6 +7,12 @@ import forecastMenuIcon from "../assets/forecastMenuIcon.svg";
 import handImage from "../assets/hand.svg";
 
 function Sidebar() {
+	const stripePaymentPage = () => {
+		window
+			.open("https://buy.stripe.com/test_5kA9BS8Lz7gEgogbII", "_blank")
+			.focus();
+	};
+
 	return (
 		<div className="sideBar">
 			<div>
@@ -29,7 +35,7 @@ function Sidebar() {
 
 			<div className="ad">
 				<img src={handImage} alt="mbile-hand" />
-				<button>Upgrade to Pro</button>
+				<button onClick={stripePaymentPage}>Upgrade to Pro</button>
 			</div>
 		</div>
 	);
