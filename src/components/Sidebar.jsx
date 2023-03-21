@@ -1,5 +1,4 @@
 import React from "react";
-// import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import logo from "../assets/logo.svg";
@@ -8,8 +7,6 @@ import forecastMenuIcon from "../assets/forecastMenuIcon.svg";
 import handImage from "../assets/hand.svg";
 
 function Sidebar() {
-	// const [currentTab, setCurrentTab] = useState("dashboard");
-	// console.log(currentTab, "currentTab");
 	return (
 		<div className="sideBar">
 			<div>

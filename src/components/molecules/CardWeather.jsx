@@ -8,12 +8,24 @@ import {
 	stormy,
 	thunder,
 } from "../../assets/index";
-function CardWeather() {
+function CardWeather({ item }) {
+	const imageMap = new Map([
+		["Cloudy", sunny],
+		["Partly Cloudy", partlyCloudy],
+		["Cloudy", cloudy],
+		["Rainy", rainy],
+		["Snow", snow],
+		["Stormy", stormy],
+		["Thunder", thunder],
+	]);
+
+	const imageToRender = imageMap.get(item?.condition);
+
 	return (
 		<div className="cardWeather">
-			<p>24°C</p>
-			<img src={thunder} alt="partly cloudy" />
-			<p>15:00</p>
+			<p>{item?.temperature}°C</p>
+			<img src={imageToRender} alt="partly cloudy" />
+			<p>{item?.time}</p>
 		</div>
 	);
 }

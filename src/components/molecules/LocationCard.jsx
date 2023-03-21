@@ -1,12 +1,12 @@
 import React from "react";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 
-function LocationCard() {
+function LocationCard(props) {
 	return (
 		<div className="locationCard">
 			<div>
 				<FmdGoodOutlinedIcon />
-				<p>Bangalore</p>
+				<p>{props?.city?.name}</p>
 			</div>
 			<p>34°/21°</p>
 		</div>

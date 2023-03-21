@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
@@ -7,8 +6,6 @@ import Sidebar from "./components/Sidebar";
 import Topbar from "./components/Topbar";
 
 function App() {
-	// const [tab, setTab] = useState("dashboard");
-
 	return (
 		<div className="App">
 			<Sidebar />

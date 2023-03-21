@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import ExpandMoreOutlinedIcon from "@mui/icons-material/ExpandMoreOutlined";
@@ -35,6 +38,24 @@ function Topbar() {
 	const handleClose = () => {
 		setOpen(false);
 	};
+	const [cityList, setCityList] = useState([]);
+
+	useEffect(() => {
+		const getData = async () => {
+			const response = await axios.get(
+				`https://hiring-test.a2dweb.com/city-list?page=1&limit=7`,
+				{
+					headers: {
+						// authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+						authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmciOiJhMmQiLCJ1c2VySWQiOiI2MzRmOGM1ZWYxNTVlMjMyYzU1NzVmZDEiLCJhcHAiOiJ3ZWF0aGVyIiwiZGV2Ijoic3VtYW4iLCJpYXQiOjE2NjYxNjIzNDZ9.Ptma5JeNRuRhjtiVQOGun4qpWng-_9q5WjcNmch_AlM`,
+					},
+				}
+			);
+			setCityList(response?.data?.list);
+		};
+
+		getData();
+	}, []);
 
 	return (
 		<div className="topBar">
@@ -89,10 +110,14 @@ function Topbar() {
 								<SearchIcon />
 							</IconButton>
 						</Paper>
+						{cityList?.map((city) => (
+							<LocationCard key={city?._id} city={city} />
+						))}
+
+						{/* <LocationCard city={city} />
 						<LocationCard />
 						<LocationCard />
-						<LocationCard />
-						<LocationCard />
+						<LocationCard /> */}
 					</div>
 				</Popover>
 
